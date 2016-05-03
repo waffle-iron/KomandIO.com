@@ -1,4 +1,5 @@
 require 'pathname'
+require 'rugged'
 
 class Git
 
@@ -17,10 +18,10 @@ class Git
     repo_url.slice!(0) if repo_url.start_with?("/")
    
     repo = nil
+
     GitRepo.transaction do 
       repo = GitRepo.create repo_url: repo_url, repo_type: 'github'
       clone_github_repo repo_url, repo.repo_path
-      repo
     end
 
     repo
@@ -35,9 +36,20 @@ class Git
   private
 
   def clone_github_repo repo_url, repo_path
-    repo_clone_url = "git@github.com:#{repo_url}.git"
-    cmd = "git clone #{repo_clone_url} #{repo_path}"
-    system cmd
+    repo_clone_url = "http://github.com/#{repo_url}"
+    Rugged::Repository.clone_at repo_clone_url, repo_path.to_s, credentials: git_credentials
+  end
+
+  def git_privatekey
+    @git_privatekey ||= Rails.root + 'sshkeys/id_rsa'
+  end
+
+  def git_publickey 
+    @git_publickey ||= Rails.root + 'sshkeys/id_rsa.pub'
+  end
+    
+  def git_credentials
+    @git_credentials ||= Rugged::Credentials::SshKey.new(privatekey: git_privatekey.to_s, publickey: git_publickey.to_s, passphrase: '')
   end
 
 end

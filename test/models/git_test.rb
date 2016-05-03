@@ -69,4 +69,12 @@ class GitTest < ActiveSupport::TestCase
     assert @git.git_working_tree?(repo.repo_path)
   end
 
+  def test_it_has_proper_git_credentials
+    assert @git.send(:git_privatekey).exist?
+    assert @git.send(:git_publickey).exist?
+  assert_equal ".pub", @git.send(:git_publickey).extname
+  end
+
 end
+
+

@@ -5,6 +5,10 @@ class GitRepo < ApplicationRecord
     git.home_path + repo_url
   end
 
+  def branches
+    git.client.branches(repo_url)
+  end
+
   private
   def git
     @git ||= Git.new

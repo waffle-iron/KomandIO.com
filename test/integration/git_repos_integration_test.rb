@@ -27,4 +27,16 @@ class GitReposIntegrationTest < ActionDispatch::IntegrationTest
       assert_no_selector "input[value='Clone']"
     end
   end
+
+  def test_it_can_display_repo
+    repo_name = 'netoff/ruby-rails-sample'
+    post git_repos_path, params: {repo_url: repo_name, repo_type: 'github'}
+    visit root_path
+
+    within "[data-repo='#{repo_name}']" do
+      click_on "View"
+    end    
+
+    assert_text repo_name
+  end
 end

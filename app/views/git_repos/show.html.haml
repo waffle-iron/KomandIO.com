@@ -1,0 +1,7 @@
+%h1= @git_repo.repo_url
+
+%h2 Branches:
+
+%ul
+  - @git_repo.branches.each do |branch|
+    %li= branch[:name]

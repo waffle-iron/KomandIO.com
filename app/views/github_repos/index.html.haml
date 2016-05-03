@@ -1,0 +1,8 @@
+%h1 Github Repositories 
+
+%ul
+- @repositories.each do |github_repo|
+  %li{data: {repo: github_repo[:full_name]}}
+    %a{href: github_repo[:html_url]}= github_repo[:name]
+    -unless GitRepo.where(repo_url: github_repo[:full_name]).exists?
+      = button_to "Clone", git_repos_path(repo_url: github_repo[:full_name], repo_type: 'github')

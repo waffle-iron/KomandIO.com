@@ -2,9 +2,8 @@ require 'pathname'
 require 'rugged'
 
 class Git
-
   TOKEN = ENV['GITHUB_TOKEN']
-  TEST_REPO = 'netoff/ruby-rails-sample'
+  # TEST_REPO = 'netoff/ruby-rails-sample'
 
   attr_reader :client, :home_path
   
@@ -28,9 +27,9 @@ class Git
   end
 
   def git_working_tree? path
-    cmd = "cd #{path} && git rev-parse --is-inside-work-tree"
-    res = system cmd 
-    res.to_s.downcase == "true"
+    return true if Rugged::Repository.new path
+  rescue
+    false
   end
 
   private

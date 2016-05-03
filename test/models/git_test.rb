@@ -66,7 +66,7 @@ class GitTest < ActiveSupport::TestCase
 
   def test_it_creates_git_repo
     repo =  @git.create_github_repo @repo_name
-    assert @git.git_working_tree?(repo.repo_path)
+    assert @git.git_working_tree?(repo.repo_path.to_s)
   end
 
   def test_it_has_proper_git_credentials

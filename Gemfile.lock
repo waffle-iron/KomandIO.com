@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/libgit2/rugged.git
+  remote: ssh://github.com/libgit2/rugged.git
   revision: 2139eddb10ad723744a0c88aef5af2ef42040159
   submodules: true
   specs:

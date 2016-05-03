@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'haml'
 gem 'octokit'
-gem 'rugged', git: 'git://github.com/libgit2/rugged.git', submodules: true
+gem 'rugged', git: 'ssh://github.com/libgit2/rugged.git', submodules: true
 gem 'foreman'
 
 gem "codeclimate-test-reporter", group: :test, require: nil

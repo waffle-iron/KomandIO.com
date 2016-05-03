@@ -1,8 +1,8 @@
 require 'pathname'
 
-class Git #< ApplicationRecord
+class Git
 
-  TOKEN = "26f6585e7c821db223c4a29d8c28b8d24fe88e2f"
+  TOKEN = ENV['GITHUB_TOKEN']
   TEST_REPO = 'netoff/ruby-rails-sample'
 
   attr_reader :client, :home_path

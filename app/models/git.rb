@@ -3,8 +3,7 @@ require 'rugged'
 
 class Git
   TOKEN = ENV['GITHUB_TOKEN']
-  # TEST_REPO = 'netoff/ruby-rails-sample'
-
+  
   attr_reader :client, :home_path
   
   def initialize

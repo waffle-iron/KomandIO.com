@@ -1,6 +1,6 @@
 ## KomandIO.com
 
-Easiest way to squash and rebase your banches!
+Easiest way to squash and rebase your branches!
 
 [![Build Status](https://travis-ci.org/netoff/KomandIO.com.svg?branch=master)](https://travis-ci.org/netoff/KomandIO.com)
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KomandIO.com | Simplest way to squash and rebase your branches</title>
+    <title>KomandIO | Easiest way to manage your PRs</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
 
@@ -10,10 +10,12 @@
   </head>
 
   <body>
+    <div class='container-fluid'>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, class: name %>
       <% end %>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>

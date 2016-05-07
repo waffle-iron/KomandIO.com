@@ -4,10 +4,11 @@ require 'rugged'
 class Git
   TOKEN = ENV['GITHUB_TOKEN']
   
-  attr_reader :client, :home_path
+  attr_reader :github, :home_path
   
   def initialize
-    @client = Octokit::Client.new(access_token: TOKEN)
+    raise "GitHub token not present" unless TOKEN.present?
+    @github = Octokit::Client.new(access_token: TOKEN)
     @home_path = Pathname.new('~').expand_path
   end
 

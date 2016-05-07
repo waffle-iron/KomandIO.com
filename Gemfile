@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'haml'
 gem 'octokit'
 gem 'rugged', git: 'git://github.com/libgit2/rugged.git', submodules: true
+gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'foreman'
 
 gem "codeclimate-test-reporter", group: :test, require: nil

@@ -72,7 +72,23 @@ class GitTest < ActiveSupport::TestCase
   def test_it_has_proper_git_credentials
     assert @git.send(:git_privatekey).exist?
     assert @git.send(:git_publickey).exist?
-  assert_equal ".pub", @git.send(:git_publickey).extname
+    assert_equal ".pub", @git.send(:git_publickey).extname
+  end
+
+  def test_it_returns_list_of_branches
+    assert @git.github.respond_to? :branches
+  end
+
+  def test_it_returns_list_of_pull_requests
+    assert @git.github.respond_to? :pull_requests
+  end
+
+  def test_it_returns_list_of_pull_commits
+    assert @git.github.respond_to? :pull_commits
+  end
+
+  def test_it_returns_list_of_pull_files
+    assert @git.github.respond_to? :pull_request_files
   end
 
 end

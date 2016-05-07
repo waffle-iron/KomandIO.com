@@ -3,8 +3,8 @@ class GithubReposController < ApplicationController
 
   def index
     user = 'netoff'
-    
+
     @git = Git.new
-    @repositories = @git.client.repositories(user)
+    @repositories = @git.github.repositories(user)
   end
 end

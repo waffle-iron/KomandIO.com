@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   resources :github_repos
 
+  get "/dashboard", to: "dashboard#show"
+
   root "github_repos#index"
 
-  resources :git_repos
+  resources :git_repos do 
+    resources :pull_requests
+  end
 end

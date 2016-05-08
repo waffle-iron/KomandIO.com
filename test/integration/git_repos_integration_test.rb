@@ -10,7 +10,6 @@ class GitReposIntegrationTest < ActionDispatch::IntegrationTest
 
   def test_it_can_display_repo_its_branches_and_pull_requests
     repo_name = 'netoff/ruby-rails-sample'
-    # post git_repos_path, params: {repo_url: repo_name, repo_type: 'github'}
     visit root_path
 
     within "[data-repo='#{repo_name}']" do
@@ -30,7 +29,6 @@ class GitReposIntegrationTest < ActionDispatch::IntegrationTest
 
   def test_it_displays_pull_request
     repo_name = 'netoff/ruby-rails-sample'
-    # post git_repos_path, params: {repo_url: repo_name, repo_type: 'github'}
     visit root_path
 
     #open 'ruby-rails-sample' path
@@ -53,5 +51,11 @@ class GitReposIntegrationTest < ActionDispatch::IntegrationTest
     within "#files" do 
       assert_text "test.txt"
     end
+  end
+
+  def test_it_squashes_commits
+  end
+
+  def test_it_deletes_commit
   end
 end

@@ -1,11 +1,11 @@
 class GitRepo < ApplicationRecord
-  before_destroy {|repo| repo.repo_path.rmtree if repo.repo_path.exist?}
+  before_destroy do |repo|
+    path = repo_path
+    path.rmtree if path.exist?
+  end
 
   def repo_path
-    git.home_path + repo_url
+    @repo_path ||= Git.new.repo_path(self.repo_url) 
   end
 
-  def git
-    @git ||= Git.new
-  end
 end

@@ -1,4 +1,4 @@
-%h1= @git_repo.repo_url
+%h1= @repo_url
 
 %h2 Branches
 
@@ -10,4 +10,4 @@
 
 %ul#pull_requests
   - @pull_requests.each do |pr|
-    %li= link_to pr[:title], git_repo_pull_request_path(git_repo_id: @git_repo.repo_url, id: pr[:number])
+    %li= link_to pr[:title], git_repo_pull_request_path(git_repo_id: @repo_url, id: pr[:number])

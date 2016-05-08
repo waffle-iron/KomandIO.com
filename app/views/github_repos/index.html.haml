@@ -9,7 +9,5 @@
           %td
             %a{href: github_repo[:html_url]}= github_repo[:name]
           %td
-            - if GitRepo.where(repo_url: github_repo[:full_name]).exists?
-              = link_to "View", git_repo_path(id: github_repo[:full_name])
-            - else
-              = button_to "Clone", git_repos_path(repo_url: github_repo[:full_name], repo_type: 'github')
+            = link_to "View", git_repo_path(id: github_repo[:full_name]), class: "btn btn-primary"
+            

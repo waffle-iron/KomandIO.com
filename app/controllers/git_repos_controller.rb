@@ -1,15 +1,11 @@
 class GitReposController < ApplicationController
 
   def show
-    @git_repo = GitRepo.find_by_repo_url(params[:id])
-    @branches = @git_repo.git.github.branches(@git_repo.repo_url)
-    @pull_requests = @git_repo.git.github.pull_requests(@git_repo.repo_url, state: 'open')
-  end
-
-  def create
+    @repo_url = params[:id]
+    # @git_repo = GitRepo.find_by_repo_url(repo_ur)
+    
     git = Git.new
-    repo = git.create_github_repo params[:repo_url]
-
-    redirect_to root_path, notice: "Repository(#{repo.repo_url}) successfully added"
+    @branches = git.github.branches(@repo_url)
+    @pull_requests = git.github.pull_requests(@repo_url, state: 'open')
   end
 end

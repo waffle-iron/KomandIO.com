@@ -32,6 +32,11 @@ class Git
     false
   end
 
+  def repo_path repo_url
+    home_path + repo_url
+  end
+
+
   private
 
   def clone_github_repo repo_url, repo_path

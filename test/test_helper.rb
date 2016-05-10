@@ -7,7 +7,9 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 require 'capybara/rails'
-require 'capybara-screenshot/minitest'
+# require 'capybara-screenshot/minitest'
+
+Capybara.default_driver = :selenium
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -20,8 +22,7 @@ end
 class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
   include Capybara::DSL
-
-  include Capybara::Screenshot::MiniTestPlugin
+  # include Capybara::Screenshot::MiniTestPlugin
 
   # Reset sessions and driver between tests
   # Use super wherever this method is redefined in your individual test classes

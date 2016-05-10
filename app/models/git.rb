@@ -12,15 +12,17 @@ class Git
     @home_path = Pathname.new('~').expand_path
   end
 
-  def create_github_repo repo_url
+  def get_github_repo repo_url
     repo_url.strip!
     repo_url.slice!(0) if repo_url.start_with?("/")
    
-    repo = nil
+    repo = GitRepo.find_by_repo_url repo_url
 
-    GitRepo.transaction do 
-      repo = GitRepo.create repo_url: repo_url, repo_type: 'github'
-      clone_github_repo repo_url, repo.repo_path
+    unless repo.present?
+      GitRepo.transaction do 
+        repo = GitRepo.create repo_url: repo_url, repo_type: 'github'
+        clone_github_repo repo_url, repo.repo_path
+      end
     end
 
     repo

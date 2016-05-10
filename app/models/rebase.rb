@@ -1,0 +1,2 @@
+class Rebase < ApplicationRecord
+end

@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :git_repos do 
     resources :pull_requests
   end
+
+  resources :rebases
 end

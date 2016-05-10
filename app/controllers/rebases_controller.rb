@@ -1,0 +1,2 @@
+class RebasesController < ApplicationController
+end

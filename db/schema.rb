@@ -11,11 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502140504) do
+ActiveRecord::Schema.define(version: 20160508131954) do
 
   create_table "git_repos", force: :cascade do |t|
     t.string   "repo_url"
     t.string   "repo_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rebases", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

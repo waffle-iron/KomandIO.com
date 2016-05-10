@@ -14,7 +14,7 @@ class GitRepoTest < ActiveSupport::TestCase
   end
 
   def test_it_cleans_up_after_itself
-    @repo =  @git.create_github_repo @repo_name
+    @repo =  @git.get_github_repo @repo_name
 
     repo_path = @repo.repo_path
     assert repo_path.exist?

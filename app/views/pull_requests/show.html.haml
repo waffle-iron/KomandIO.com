@@ -15,13 +15,13 @@
           .pull-md-right
             %div.btn-group{"data-toggle" => "buttons"}
               %label.btn.btn-sm.btn-primary.active
-                %input#option1{:autocomplete => "off", :checked => "", :name => "options", :type => "radio"}
+                %input.pick_action{autocomplete: "off", checked: true, name: "commit_#{commit[:sha]}", type: "radio", value: 'p'}
                   Pick
               %label.btn.btn-sm.btn-primary
-                %input#option2{:autocomplete => "off", :name => "options", :type => "radio"}
+                %input.squash_action{autocomplete: "off", name: "commit_#{commit[:sha]}", type: "radio", value: 's'}
                   Squash
               %label.btn.btn-sm.btn-primary
-                %input#option3{:autocomplete => "off", :name => "options", :type => "radio"}
+                %input.delete_action{autocomplete: "off", name: "commit_#{commit[:sha]}", type: "radio", value: 'd'}
                   Delete
           %h4.list-group-item-heading= commit[:commit][:message]
           %p.list-group-item-text

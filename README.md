@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/netoff/KomandIO.com.png?label=ready&title=Ready)](https://waffle.io/netoff/KomandIO.com)
 ## KomandIO.com
 
 [KomandIO.com](http://www.komandio.co) Easiest way to manage your Pull requests.
